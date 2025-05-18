@@ -9,7 +9,7 @@
         <version>2.6.14</version>
         <relativePath/>
     </parent>
-    <groupId>com.lzhphantom</groupId>
+    <groupId>io.github.lzhphantom</groupId>
     <artifactId>lzhphantom-cloud-parent</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
@@ -58,26 +58,17 @@
     </licenses>
     <developers>
         <developer>
+            <id>ossrh</id>
             <name>lzhphantom</name>
             <email>lzhphantom@163.com</email>
         </developer>
     </developers>
     <!-- 配置SCM -->
     <scm>
-        <connection>scm:git:https://github.com/lzhphantom/lzhphantom-cloud-parent.git</connection>
         <url>https://github.com/lzhphantom/lzhphantom-cloud-parent</url>
+        <connection>https://github.com/lzhphantom/lzhphantom-cloud-parent.git</connection>
+        <developerConnection>scm:git:ssh://git@github.com:lzhphantom/lzhphantom-cloud-parent.git</developerConnection>
     </scm>
-    <!-- 配置部署仓库 -->
-    <distributionManagement>
-        <snapshotRepository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/content/repositories/snapshots</url>
-        </snapshotRepository>
-        <repository>
-            <id>ossrh</id>
-            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
-        </repository>
-    </distributionManagement>
     <dependencies>
         <dependency>
             <groupId>org.projectlombok</groupId>
@@ -89,37 +80,44 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-base</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-bean</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-interface</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-mq</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-mybatis-plus</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-redis</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.lzhphantom</groupId>
+                <groupId>io.github.lzhphantom</groupId>
+
                 <artifactId>lzhphantom-web</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
@@ -217,5 +215,102 @@
             </dependency>
         </dependencies>
     </dependencyManagement>
+<!--    <build>-->
+<!--        <plugins>-->
+<!--            <plugin>-->
+<!--                <groupId>org.apache.maven.plugins</groupId>-->
+<!--                <artifactId>maven-compiler-plugin</artifactId>-->
+<!--                <version>3.8.1</version>-->
+<!--                <configuration>-->
+<!--                    <source>${maven.compiler.source}</source>-->
+<!--                    <target>${maven.compiler.target}</target>-->
+<!--                    <encoding>${project.build.sourceEncoding}</encoding>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
+<!--        </plugins>-->
+<!--    </build>-->
 
+    <build>
+        <plugins>
+            <!--   central发布插件    -->
+            <plugin>
+                <groupId>org.sonatype.central</groupId>
+                <artifactId>central-publishing-maven-plugin</artifactId>
+                <version>0.4.0</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <publishingServerId>ossrh</publishingServerId>
+                    <tokenAuth>true</tokenAuth>
+                </configuration>
+            </plugin>
+            <!-- Source -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>2.2.1</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar-no-fork</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- Javadoc -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>3.5.0</version>
+                <configuration>
+                    <windowtitle>${project.name}</windowtitle>
+                    <doctitle>${project.name}</doctitle>
+                    <show>private</show>
+                    <detectLinks>false</detectLinks>
+                    <detectOfflineLinks>true</detectOfflineLinks>
+                    <linksource>true</linksource>
+                    <detectJavaApiLink>true</detectJavaApiLink>
+                    <source>8</source>
+                </configuration>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <!-- 以下是GPG -->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
+                <configuration>
+                    <!--指定 GPG 执行程序的路径-->
+                    <executable>G:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
+                    <!--指定用于签名的 GPG 密钥名称。-->
+                    <keyname>xxx</keyname>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>verify</phase>
+                        <goals>
+                            <goal>sign</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+    <distributionManagement>
+        <snapshotRepository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/content/repositories/snapshots/</url>
+        </snapshotRepository>
+        <repository>
+            <id>ossrh</id>
+            <url>https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/</url>
+        </repository>
+    </distributionManagement>
 </project>
