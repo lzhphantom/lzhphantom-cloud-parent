@@ -1,4 +1,4 @@
-package com.lzhphantom.common.mybatis.tool;
+package com.lzhphantom.common.web.tool;
 
 
 import cn.hutool.core.util.ObjUtil;

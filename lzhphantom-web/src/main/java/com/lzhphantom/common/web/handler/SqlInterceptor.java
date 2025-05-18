@@ -1,4 +1,4 @@
-package com.lzhphantom.common.mybatis.handler;
+package com.lzhphantom.common.web.handler;
 
 import com.baomidou.mybatisplus.core.toolkit.ObjectUtils;
 import lombok.extern.log4j.Log4j2;

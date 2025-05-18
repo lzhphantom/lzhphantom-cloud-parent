@@ -3,7 +3,7 @@ package com.lzhphantom.common.web.controller;
 import com.lzhphantom.common.base.dto.*;
 import com.lzhphantom.common.base.result.LzhphantomPage;
 import com.lzhphantom.common.base.result.LzhphantomResult;
-import com.lzhphantom.common.mybatis.entity.BaseEntity;
+import com.lzhphantom.common.web.entity.BaseEntity;
 import com.lzhphantom.common.web.service.BaseService;
 import io.swagger.annotations.ApiOperation;
 import org.springframework.web.bind.annotation.GetMapping;

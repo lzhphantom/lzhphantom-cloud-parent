@@ -1,4 +1,4 @@
-package com.lzhphantom.common.mybatis.tool;
+package com.lzhphantom.common.web.tool;
 
 import java.io.Serializable;
 import java.lang.invoke.MethodHandles;

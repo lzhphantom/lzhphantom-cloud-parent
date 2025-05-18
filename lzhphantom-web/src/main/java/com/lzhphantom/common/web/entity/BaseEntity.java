@@ -1,4 +1,4 @@
-package com.lzhphantom.common.mybatis.entity;
+package com.lzhphantom.common.web.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableId;

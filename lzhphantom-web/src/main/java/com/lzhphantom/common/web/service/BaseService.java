@@ -4,7 +4,7 @@ package com.lzhphantom.common.web.service;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.lzhphantom.common.base.dto.*;
 import com.lzhphantom.common.base.result.LzhphantomPage;
-import com.lzhphantom.common.mybatis.entity.BaseEntity;
+import com.lzhphantom.common.web.entity.BaseEntity;
 
 /**
  * 基础Service接口，定义常用的CRUD方法

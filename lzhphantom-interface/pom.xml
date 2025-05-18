@@ -7,7 +7,7 @@
         <groupId>io.github.lzhphantom</groupId>
 
         <artifactId>lzhphantom-cloud-parent</artifactId>
-        <version>1.0.0</version>
+        <version>1.0.1</version>
     </parent>
 
     <artifactId>lzhphantom-interface</artifactId>

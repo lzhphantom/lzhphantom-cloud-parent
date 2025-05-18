@@ -10,9 +10,9 @@ import com.lzhphantom.common.base.dto.*;
 import com.lzhphantom.common.base.exception.ThrowUtils;
 import com.lzhphantom.common.base.result.LzhphantomPage;
 import com.lzhphantom.common.base.result.ResultCode;
-import com.lzhphantom.common.mybatis.entity.BaseEntity;
-import com.lzhphantom.common.mybatis.tool.QueryWrapperBuilder;
+import com.lzhphantom.common.web.entity.BaseEntity;
 import com.lzhphantom.common.web.service.BaseService;
+import com.lzhphantom.common.web.tool.QueryWrapperBuilder;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;

@@ -11,7 +11,7 @@
     </parent>
     <groupId>io.github.lzhphantom</groupId>
     <artifactId>lzhphantom-cloud-parent</artifactId>
-    <version>1.0.0</version>
+    <version>${lzhphantom-cloud.version}</version>
     <packaging>pom</packaging>
 
     <name>lzhphantom-cloud-parent</name>
@@ -19,7 +19,6 @@
     <modules>
         <module>lzhphantom-base</module>
         <module>lzhphantom-mq</module>
-        <module>lzhphantom-mybatis-plus</module>
         <module>lzhphantom-redis</module>
         <module>lzhphantom-web</module>
         <module>lzhphantom-bean</module>
@@ -31,7 +30,7 @@
         <spring-boot.version>2.5.4</spring-boot.version>
         <spring-cloud.version>2021.0.8</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-        <lzhphantom-cloud.version>1.0.0</lzhphantom-cloud.version>
+        <lzhphantom-cloud.version>1.0.1</lzhphantom-cloud.version>
         <redission.version>3.45.0</redission.version>
         <hutool.version>5.8.24</hutool.version>
         <mysql.version>8.0.33</mysql.version>
@@ -93,31 +92,21 @@
             </dependency>
             <dependency>
                 <groupId>io.github.lzhphantom</groupId>
-
                 <artifactId>lzhphantom-interface</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.lzhphantom</groupId>
-
                 <artifactId>lzhphantom-mq</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.lzhphantom</groupId>
-
-                <artifactId>lzhphantom-mybatis-plus</artifactId>
-                <version>${lzhphantom-cloud.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.github.lzhphantom</groupId>
-
                 <artifactId>lzhphantom-redis</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
             <dependency>
                 <groupId>io.github.lzhphantom</groupId>
-
                 <artifactId>lzhphantom-web</artifactId>
                 <version>${lzhphantom-cloud.version}</version>
             </dependency>
@@ -290,7 +279,7 @@
                     <!--指定 GPG 执行程序的路径-->
                     <executable>G:\Program Files (x86)\GnuPG\bin\gpg.exe</executable>
                     <!--指定用于签名的 GPG 密钥名称。-->
-                    <keyname>xxx</keyname>
+                    <keyname>io.github.lzhphantom</keyname>
                 </configuration>
                 <executions>
                     <execution>

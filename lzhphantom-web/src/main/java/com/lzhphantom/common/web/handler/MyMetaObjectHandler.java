@@ -1,4 +1,4 @@
-package com.lzhphantom.common.mybatis.handler;
+package com.lzhphantom.common.web.handler;
 
 import com.baomidou.mybatisplus.core.handlers.MetaObjectHandler;
 import com.lzhphantom.common.web.utils.UserHandler;
