@@ -1,4 +1,4 @@
-package com.lzhphantom.bean.common;
+package com.lzhphantom.common.base.dto;
 
 import lombok.Data;
 

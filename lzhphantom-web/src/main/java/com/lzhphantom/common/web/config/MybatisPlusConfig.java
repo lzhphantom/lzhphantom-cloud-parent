@@ -1,12 +1,12 @@
-package com.lzhphantom.common.mybatis.config;
+package com.lzhphantom.common.web.config;
 
 import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.autoconfigure.ConfigurationCustomizer;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.plugins.MybatisPlusInterceptor;
 import com.baomidou.mybatisplus.extension.plugins.inner.PaginationInnerInterceptor;
-import com.lzhphantom.common.mybatis.handler.MyMetaObjectHandler;
-import com.lzhphantom.common.mybatis.handler.SqlInterceptor;
+import com.lzhphantom.common.web.handler.MyMetaObjectHandler;
+import com.lzhphantom.common.web.handler.SqlInterceptor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
