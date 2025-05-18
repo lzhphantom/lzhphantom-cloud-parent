@@ -1,0 +1,8 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.lzhphantom.common.redis.config.RedisConfig,\
+  com.lzhphantom.common.redis.config.RedissonConfig,\
+  com.lzhphantom.common.redis.util.RedisUtils,\
+  com.lzhphantom.common.redis.util.RedissonUtils,\
+  com.lzhphantom.common.redis.util.DynamicSlidingWindowRateLimiter,\
+  com.lzhphantom.common.redis.aop.SlidingRateLimitAspect,\
+  com.lzhphantom.common.redis.aop.IdempotentAspect
