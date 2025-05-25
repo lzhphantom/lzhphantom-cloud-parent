@@ -11,7 +11,7 @@
     </parent>
     <groupId>io.github.lzhphantom</groupId>
     <artifactId>lzhphantom-cloud-parent</artifactId>
-    <version>1.0.3</version>
+    <version>1.0.4</version>
     <packaging>pom</packaging>
 
     <name>lzhphantom-cloud-parent</name>
@@ -30,7 +30,7 @@
         <spring-boot.version>2.5.4</spring-boot.version>
         <spring-cloud.version>2021.0.8</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-        <lzhphantom-cloud.version>1.0.3</lzhphantom-cloud.version>
+        <lzhphantom-cloud.version>1.0.4</lzhphantom-cloud.version>
         <redission.version>3.18.0</redission.version>
         <hutool.version>5.8.24</hutool.version>
         <mysql.version>8.0.33</mysql.version>
@@ -46,6 +46,7 @@
         <sa-token.version>1.39.0</sa-token.version>
         <docker.maven.plugin.version>1.0.0</docker.maven.plugin.version>
         <lombok.version>1.18.30</lombok.version>
+        <docker.host>http://192.168.1.82:2375</docker.host>
     </properties>
     <!-- 配置许可证 -->
     <licenses>
@@ -291,6 +292,47 @@
                 </executions>
             </plugin>
         </plugins>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                </plugin>
+                <plugin>
+                    <groupId>com.spotify</groupId>
+                    <artifactId>docker-maven-plugin</artifactId>
+                    <version>1.2.2</version>
+                    <executions>
+                        <execution>
+                            <id>build-image</id>
+                            <phase>package</phase>
+                            <goals>
+                                <goal>build</goal>
+                                <!--                                <goal>push</goal>-->
+                            </goals>
+                        </execution>
+                    </executions>
+                    <configuration>
+                        <imageName>${project.artifactId}</imageName>
+                        <dockerHost>${docker.host}</dockerHost>
+                        <imageTags>
+                            <imageTag>latest</imageTag>
+                        </imageTags>
+                        <!--                        <baseImage>openjdk:8</baseImage>-->
+                        <!--                        <entryPoint>["java", "-jar","-Dspring.profiles.active=prod","/${project.build.finalName}.jar"]-->
+                        <!--                        </entryPoint>-->
+                        <dockerDirectory>${project.basedir}</dockerDirectory>
+                        <resources>
+                            <resource>
+                                <targetPath>/</targetPath>
+                                <directory>${project.build.directory}</directory>
+                                <include>${project.build.finalName}.jar</include>
+                            </resource>
+                        </resources>
+                    </configuration>
+                </plugin>
+            </plugins>
+        </pluginManagement>
     </build>
     <distributionManagement>
         <snapshotRepository>
