@@ -2,4 +2,6 @@ org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
   com.lzhphantom.common.web.config.FeignConfig,\
   com.lzhphantom.common.web.exception.GlobalExceptionHandler,\
   com.lzhphantom.common.web.utils.RedisToken,\
-  com.lzhphantom.common.web.aop.ExtApiAopIemPotent
+  com.lzhphantom.common.web.aop.ExtApiAopIemPotent,\
+  com.lzhphantom.common.web.config.MybatisPlusConfig,\
+  com.lzhphantom.common.web.handler.MyMetaObjectHandler
