@@ -26,7 +26,6 @@
         </dependency>
         <dependency>
             <groupId>io.github.lzhphantom</groupId>
-
             <artifactId>lzhphantom-redis</artifactId>
         </dependency>
         <dependency>
