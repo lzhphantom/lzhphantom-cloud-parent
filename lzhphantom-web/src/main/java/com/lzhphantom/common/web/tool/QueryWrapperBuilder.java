@@ -35,6 +35,17 @@ public class QueryWrapperBuilder {
                         if (!list.isEmpty()) {
                             if (column.contains("create") && list.size() == 2) {
                                 wrapper.between(column, list.get(0), list.get(1));
+                            } else if (column.contains("_between")) {
+                                column = column.replace("_between", "");
+                                if (list.size() == 1) {
+                                    wrapper.ge(column, list.get(0));
+                                } else {
+                                    if (ObjUtil.isEmpty(list.get(0))) {
+                                        wrapper.le(column, list.get(1));
+                                    } else {
+                                        wrapper.between(column, list.get(0), list.get(1));
+                                    }
+                                }
                             } else {
                                 wrapper.in(column, (Collection<?>) value);
                             }
@@ -45,6 +56,17 @@ public class QueryWrapperBuilder {
                         if (arr.length > 0) {
                             if (column.contains("create") && arr.length == 2) {
                                 wrapper.between(column, arr[0], arr[1]);
+                            } else if (column.contains("_between")) {
+                                column = column.replace("_between", "");
+                                if (arr.length == 1) {
+                                    wrapper.ge(column, arr[0]);
+                                } else {
+                                    if (ObjUtil.isEmpty(arr[0])) {
+                                        wrapper.le(column, arr[1]);
+                                    } else {
+                                        wrapper.between(column, arr[0], arr[1]);
+                                    }
+                                }
                             } else {
                                 wrapper.in(column, (Object[]) value);
                             }
