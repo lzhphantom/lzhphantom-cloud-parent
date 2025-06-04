@@ -7,12 +7,13 @@
         <groupId>io.github.lzhphantom</groupId>
 
         <artifactId>lzhphantom-cloud-parent</artifactId>
-        <version>1.0.4</version>
+        <version>1.0.5</version>
     </parent>
 
     <artifactId>lzhphantom-web</artifactId>
     <version>${lzhphantom-cloud.version}</version>
     <packaging>jar</packaging>
+    <name>lzhphantom-web</name>
 
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
@@ -23,6 +24,7 @@
         <dependency>
             <groupId>io.github.lzhphantom</groupId>
             <artifactId>lzhphantom-base</artifactId>
+            <version>${lzhphantom-cloud.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.lzhphantom</groupId>

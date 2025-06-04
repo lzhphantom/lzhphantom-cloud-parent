@@ -11,7 +11,7 @@
     </parent>
     <groupId>io.github.lzhphantom</groupId>
     <artifactId>lzhphantom-cloud-parent</artifactId>
-    <version>1.0.4</version>
+    <version>1.0.5</version>
     <packaging>pom</packaging>
 
     <name>lzhphantom-cloud-parent</name>
@@ -26,11 +26,13 @@
     </modules>
     <description>lzhphantom cloud parent</description>
     <properties>
+        <!--        每次版本更新需要修改-->
+        <lzhphantom-cloud.version>1.0.5</lzhphantom-cloud.version>
+
         <dockerfile-maven-version>1.4.9</dockerfile-maven-version>
         <spring-boot.version>2.5.4</spring-boot.version>
         <spring-cloud.version>2021.0.8</spring-cloud.version>
         <spring-cloud-alibaba.version>2021.1</spring-cloud-alibaba.version>
-        <lzhphantom-cloud.version>1.0.4</lzhphantom-cloud.version>
         <redission.version>3.18.0</redission.version>
         <hutool.version>5.8.24</hutool.version>
         <mysql.version>8.0.33</mysql.version>
