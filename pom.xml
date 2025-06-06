@@ -45,7 +45,7 @@
         <mybatis-plus.version>3.5.5</mybatis-plus.version>
         <mybatis-spring.version>3.0.3</mybatis-spring.version>
         <knife4j.version>4.4.0</knife4j.version>
-        <sa-token.version>1.39.0</sa-token.version>
+        <sa-token.version>1.43.0</sa-token.version>
         <docker.maven.plugin.version>1.0.0</docker.maven.plugin.version>
         <lombok.version>1.18.30</lombok.version>
         <docker.host>http://192.168.1.82:2375</docker.host>
