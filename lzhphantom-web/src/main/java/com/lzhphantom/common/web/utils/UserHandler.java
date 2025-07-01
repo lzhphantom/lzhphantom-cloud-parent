@@ -13,6 +13,9 @@ public class UserHandler {
     public static Long getCurrentUserId() {
         return StpUtil.getLoginIdAsLong();
     }
+    public static String getClientId() {
+        return StpUtil.getSession().getString("clientId");
+    }
 
     public static List<Long> getCurrentUserRoleIds() {
         return StpUtil.getSession().getModel("roleIds", List.class);
