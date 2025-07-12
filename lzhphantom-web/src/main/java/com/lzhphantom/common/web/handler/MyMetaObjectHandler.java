@@ -18,6 +18,8 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
             this.strictUpdateFill(metaObject, "updateTime", LocalDateTime::now, LocalDateTime.class);
             this.strictUpdateFill(metaObject, "updatedAt", LocalDateTime::now, LocalDateTime.class);
             this.strictInsertFill(metaObject, "createUserId", UserHandler::getCurrentUserId, Long.class);
+            this.strictInsertFill(metaObject, "createBy", UserHandler::getCurrentUserId, Long.class);
+            this.strictInsertFill(metaObject, "createdBy", UserHandler::getCurrentUserId, Long.class);
         }
     }
 
@@ -28,6 +30,8 @@ public class MyMetaObjectHandler implements MetaObjectHandler {
         } else {
             this.strictUpdateFill(metaObject, "updateTime", LocalDateTime::now, LocalDateTime.class);
             this.strictUpdateFill(metaObject, "updatedAt", LocalDateTime::now, LocalDateTime.class);
+            this.strictUpdateFill(metaObject, "updatedBy", LocalDateTime::now, LocalDateTime.class);
+            this.strictUpdateFill(metaObject, "updateBy", LocalDateTime::now, LocalDateTime.class);
         }
     }
 }
