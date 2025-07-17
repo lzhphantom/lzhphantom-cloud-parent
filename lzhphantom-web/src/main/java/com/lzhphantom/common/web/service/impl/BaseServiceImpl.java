@@ -126,7 +126,7 @@ public abstract class BaseServiceImpl<M extends BaseMapper<E>, E extends BaseEnt
         List<P> records = resultPage.getRecords().stream()
                 .map(this::convertToDto)
                 .collect(Collectors.toList());
-
+        doPageDtoProcess(records);
         // 构建返回结果
         LzhphantomPage<P> result = new LzhphantomPage<>();
         result.setTotal(resultPage.getTotal());
@@ -164,5 +164,9 @@ public abstract class BaseServiceImpl<M extends BaseMapper<E>, E extends BaseEnt
     public void deleteProcess(Long id){
     }
     public void batchDeleteProcess(List<?> ids) {
+    }
+
+    public void doPageDtoProcess(List<P> records){
+
     }
 }

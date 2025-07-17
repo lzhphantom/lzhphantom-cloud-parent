@@ -1,5 +1,6 @@
 package com.lzhphantom.common.web.exception;
 
+import cn.dev33.satoken.exception.NotLoginException;
 import com.lzhphantom.common.base.exception.BusinessException;
 import com.lzhphantom.common.base.exception.UnauthorizedException;
 import com.lzhphantom.common.base.result.LzhphantomResult;
@@ -45,5 +46,12 @@ public class GlobalExceptionHandler {
     public LzhphantomResult<?> handleException(Exception e) {
         log.error("系统异常", e);
         return LzhphantomResult.failed("系统异常，请稍后重试");
+    }
+
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(NotLoginException.class)
+    public LzhphantomResult<?> handleNotLoginException(NotLoginException e) {
+        log.error("未登录异常", e);
+        return LzhphantomResult.failed(ResultCode.TOKEN_INVALID_OR_EXPIRED);
     }
 }
